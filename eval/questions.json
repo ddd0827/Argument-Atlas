@@ -1,0 +1,102 @@
+[
+  {
+    "id": "q01",
+    "title": "远程办公的普遍化推论",
+    "text": "有研究显示，某科技公司全面远程办公后，员工产出提高了百分之二十，离职率也明显下降。因此，所有公司都应该尽快转向远程办公，办公室在五年内必然消失。管理者的担心大多是多余的，只要目标清晰，员工在哪里工作并不重要。个别团队反馈协作变慢，只是因为他们没有适应新工具。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["远程办公", "产出"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q02",
+    "title": "AI 取代程序员",
+    "text": "AI 编程助手已经能完成许多中小型开发任务，有公司甚至裁掉了部分初级程序员。这意味着程序员这个职业将在不久后被完全取代。历史上，汽车取代了马车，计算器取代了算盘，任何新技术都会消灭旧岗位。因此，学习编程已经没有意义，人类写代码的时代即将结束。",
+    "required_kinds": ["claim", "counter", "question"],
+    "thesis_keywords": ["AI", "程序员"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q03",
+    "title": "读大学与收入",
+    "text": "统计数据显示，大学毕业生的平均收入显著高于高中毕业生，所以只要考上大学，就能获得更好的生活。那些没有上大学却成功的人只是极少数的幸运儿，不值得参考。学历越高，能力就越强，这已经被无数招聘案例证明。因此，家长应该不惜一切代价让孩子上大学，哪怕选择一个完全不感兴趣的专业。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["大学", "收入"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q04",
+    "title": "四天工作制",
+    "text": "某咨询公司试行四天工作制后，员工满意度上升，客户交付没有受到影响。这说明四天工作制可以在所有行业推广，并显著提升社会整体效率。反对者认为客户服务需要随时响应，但这只是管理不善的借口。只要流程足够清晰，任何团队都能在更短的时间内完成同样的工作。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["四天工作制", "效率"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q05",
+    "title": "新能源汽车的普及",
+    "text": "新能源汽车的销量已经超过燃油车，说明消费者已经完全接受了电动车。续航焦虑只是早期用户的心理惯性，随着充电桩增多，这种担心会自然消失。传统车企如果不立即停产燃油车，就必然被市场淘汰。那些认为电池回收有环境风险的观点，只是既得利益者的阻挠。",
+    "required_kinds": ["claim", "counter", "question"],
+    "thesis_keywords": ["新能源汽车", "充电"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q06",
+    "title": "短视频与注意力",
+    "text": "短视频让人注意力下降，这已经是常识。调查显示，每天刷短视频超过三小时的学生，成绩明显低于其他学生。因此，短视频应该被全面禁止，至少应该禁止未成年人使用。反对者说短视频也能学到知识，但这只是平台为自己辩护的借口。任何沉迷短视频的人，最终都会失去深度思考的能力。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["短视频", "注意力"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q07",
+    "title": "人口流出与房价",
+    "text": "人口持续流出的小城市，房价一定会长期下跌。鹤岗等地的低房价已经证明了这一点。因此，年轻人不应该在这些城市买房，租房才是理性的选择。虽然有些城市出台了人才补贴政策，但补贴只能延缓下跌，无法改变趋势。任何逆势买房的人，最终都会为自己的决定后悔。",
+    "required_kinds": ["claim", "counter", "question"],
+    "thesis_keywords": ["房价", "人口"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q08",
+    "title": "健身补剂与增肌",
+    "text": "健身补剂是快速增肌的关键。很多职业运动员都在使用蛋白粉和肌酸，说明补剂对普通人同样有效。只要坚持吃补剂，即使训练不系统，也能看到明显效果。反对者担心副作用，但这些都是没有科学依据的谣言。想要好身材，买对补剂比请教练更重要。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["补剂", "增肌"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q09",
+    "title": "在线教育的未来",
+    "text": "在线教育打破了地域限制，让所有人都能享受优质课程。疫情期间的实践已经证明，线上教学的效果不输线下。因此，学校应该全面转向线上，实体校园已经没有存在的必要。虽然有人担心学生的社交发展，但这些问题可以通过线上社群解决。未来的教育一定是完全数字化的。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["在线教育", "线上"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  },
+  {
+    "id": "q10",
+    "title": "年轻人的养老储蓄",
+    "text": "年轻人应该从二十岁开始为养老储蓄，因为复利效应会让时间成为最大的优势。每月存下一千元，几十年后就能积累一笔可观的资金。那些主张及时行乐的人，只是没有为未来负责。只要坚持储蓄，就不需要担心任何养老风险。",
+    "required_kinds": ["claim", "assumption", "counter", "question"],
+    "thesis_keywords": ["养老", "储蓄", "复利"],
+    "expected_stance": "支持",
+    "min_nodes": 5,
+    "max_nodes": 16
+  }
+]

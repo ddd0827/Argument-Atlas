@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests and lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Ruff
+        run: ruff check app tests scripts
+
+      - name: JavaScript syntax
+        run: node --check app/static/app.js
+
+      - name: Pytest
+        run: pytest -q
+
+  docker:
+    name: Build and smoke-test image
+    runs-on: ubuntu-latest
+    needs: test
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t argument-atlas:ci .
+
+      - name: Start container in mock mode
+        run: |
+          docker run -d --name argument-atlas-ci \
+            -p 8001:8000 \
+            -e ATLAS_MODE=mock \
+            -e ATLAS_DB=/data/atlas.db \
+            argument-atlas:ci
+
+      - name: Wait for health
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8001/api/health > /tmp/health.json; then
+              break
+            fi
+            sleep 2
+          done
+          test -s /tmp/health.json
+          cat /tmp/health.json
+          python3 -c "import json; d=json.load(open('/tmp/health.json')); assert d['ok'] is True and d['mode'] == 'mock'; print('health OK:', d['model'])"
+
+      - name: Verify NDJSON analysis in container
+        run: |
+          curl -sN --max-time 60 -X POST http://127.0.0.1:8001/api/analyze \
+            -H 'Content-Type: application/json' \
+            -d '{"text":"远程办公能提高效率，但也可能增加协作成本和管理难度，因此需要分行业验证。"}' \
+            > /tmp/atlas-stream.txt
+          grep -q '"type": "stage"' /tmp/atlas-stream.txt
+          grep -q '"type": "result"' /tmp/atlas-stream.txt
+          echo "NDJSON OK"
+
+      - name: Container logs
+        if: always()
+        run: docker logs argument-atlas-ci
+
+      - name: Cleanup
+        if: always()
+        run: docker rm -f argument-atlas-ci || true

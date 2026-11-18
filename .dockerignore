@@ -1,0 +1,13 @@
+.git
+.github
+.venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+tests
+docs
+atlas.db
+atlas.db-*
+.env
+eval/last-run.json

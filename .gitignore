@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+atlas.db
+atlas.db-*
+.env
+.DS_Store
+eval/last-run.json
