@@ -35,7 +35,16 @@ jobs:
         run: node --check app/static/app.js
 
       - name: Pytest
-        run: pytest -q
+        shell: bash
+        run: |
+          set +e
+          pytest -q 2>&1 | tee pytest.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            summary=$(tail -n 30 pytest.log | tr '\n' ' ' | sed 's/%/%25/g' | cut -c1-3500)
+            echo "::error title=Pytest failed (exit $status)::$summary"
+            exit "$status"
+          fi
 
   docker:
     name: Build and smoke-test image

@@ -10,3 +10,4 @@ atlas.db-*
 .env
 .DS_Store
 eval/last-run.json
+pytest.log
